@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Navidad Julio - Año Nuevo 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .snow {
+            position: absolute;
+            color: white;
+            opacity: 0.6;
+            user-select: none;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.4; }
+        }
+        
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: 10;
+            transition: all 0.3s ease-out;
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-red-950 to-slate-900 text-white overflow-x-hidden">
+    
+    <!-- Cursor Glow Effect -->
+    <div id="cursorGlow" class="cursor-glow"></div>
+    
+    <!-- Background Particles -->
+    <div id="particles" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
+    
+    <!-- Snowflakes -->
+    <div id="snowflakes" class="fixed inset-0 overflow-hidden pointer-events-none"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-slate-900/30 border-b border-red-900/30">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 text-2xl font-bold">
+                <svg class="text-red-400 w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                </svg>
+                <span class="bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+                    Julio
+                </span>
+            </div>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-red-400 transition-colors duration-300 cursor-pointer">Inicio</a>
+                <a href="#mensaje" class="hover:text-red-400 transition-colors duration-300 cursor-pointer">Mensaje</a>
+                <a href="#deseos" class="hover:text-red-400 transition-colors duration-300 cursor-pointer">Deseos</a>
+                <a href="#felicitacion" class="hover:text-red-400 transition-colors duration-300 cursor-pointer">Felicitación</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative px-6">
+        <div class="text-center max-w-4xl opacity-0" id="heroContent">
+            <div class="mb-6 inline-block">
+                <div class="relative">
+                    <svg class="w-20 h-20 text-amber-400 mx-auto animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-red-400 via-amber-300 to-red-400 bg-clip-text text-transparent">
+                Feliz Navidad Julio
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 font-light leading-relaxed">
+                Que esta Navidad 2024 y el Año Nuevo 2025 estén llenos de bendiciones
+            </p>
+            
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="#mensaje" class="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 rounded-full font-semibold hover:from-red-500 hover:to-red-600 transform hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-red-500/50 cursor-pointer inline-block">
+                    Ver Mensaje
+                </a>
+                <a href="#deseos" class="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-full font-semibold hover:bg-white/20 transform hover:scale-105 transition-all duration-300 border border-white/30 cursor-pointer inline-block">
+                    Mis Deseos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section id="mensaje" class="pt-48 pb-32 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-5xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+                        Querido Primo Litos
+                    </h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        En esta época tan especial del año, quiero desearte una muy Feliz Navidad 
+                        llena de paz, amor y alegría junto a los que más amas. Que el espíritu navideño 
+                        ilumine tu hogar y tu corazón.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Que el Año Nuevo 2025 llegue cargado de nuevas oportunidades, éxitos, salud 
+                        y momentos inolvidables. Que todos tus sueños se hagan realidad y que la 
+                        prosperidad te acompañe en cada paso del camino.
+                    </p>
+                    <div class="bg-gradient-to-br from-red-900/50 to-amber-950/50 p-6 rounded-2xl backdrop-blur-sm border border-red-800/30 mt-6">
+                        <p class="text-xl font-light italic text-gray-200">
+                            ¡Te deseo lo mejor en estas fiestas y siempre!
+                        </p>
+                    </div>
+                    <div class="flex gap-4 pt-4">
+                        <div class="bg-gradient-to-br from-red-900/50 to-red-950/50 p-6 rounded-2xl backdrop-blur-sm border border-red-800/30 flex-1">
+                            <svg class="w-8 h-8 text-red-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 12 20 22 4 22 4 12"/>
+                                <rect x="2" y="7" width="20" height="5"/>
+                                <line x1="12" y1="22" x2="12" y2="7"/>
+                                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+                                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+                            </svg>
+                            <h3 class="font-semibold mb-2">Feliz Navidad</h3>
+                            <p class="text-sm text-gray-400">Paz y amor en tu hogar</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-amber-900/50 to-amber-950/50 p-6 rounded-2xl backdrop-blur-sm border border-amber-800/30 flex-1">
+                            <svg class="w-8 h-8 text-amber-400 mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                            <h3 class="font-semibold mb-2">Próspero 2026</h3>
+                            <p class="text-sm text-gray-400">Éxitos y bendiciones</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-amber-500/20 rounded-3xl blur-3xl"></div>
+                    <div class="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-12 rounded-3xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 float-animation">
+                        <div class="text-center space-y-6">
+                            <div class="text-7xl">🎉</div>
+                            <h3 class="text-3xl font-bold">2026</h3>
+                            <p class="text-gray-400">Un año lleno de bendiciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wishes Section -->
+    <section id="deseos" class="pt-48 pb-32 px-6 bg-gradient-to-b from-transparent via-red-950/20 to-transparent">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+                Mis Mejores Deseos Para Ti
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">🎄</div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400 group-hover:text-amber-400 transition-colors">Feliz Navidad</h3>
+                    <p class="text-gray-400">Paz, amor y unión familiar</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">🎆</div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400 group-hover:text-amber-400 transition-colors">Próspero 2026</h3>
+                    <p class="text-gray-400">Nuevos logros y éxitos</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">✨</div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400 group-hover:text-amber-400 transition-colors">Salud</h3>
+                    <p class="text-gray-400">Bienestar y vitalidad</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">🎁</div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400 group-hover:text-amber-400 transition-colors">Abundancia</h3>
+                    <p class="text-gray-400">Prosperidad en todo</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">💫</div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400 group-hover:text-amber-400 transition-colors">Sueños</h3>
+                    <p class="text-gray-400">Que se hagan realidad</p>
+                </div>
+                
+                <div class="group bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 rounded-2xl backdrop-blur-sm border border-white/10 hover:border-red-400/50 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
+                    <div class="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300">🌟</div>
+                    <h3 class="text-2xl font-bold mb-2 text-red-400 group-hover:text-amber-400 transition-colors">Felicidad</h3>
+                    <p class="text-gray-400">Alegría cada día</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Message Section -->
+    <section id="felicitacion" class="pt-48 pb-32 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <svg class="w-16 h-16 text-amber-400 mx-auto mb-6 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+            </svg>
+            <h2 class="text-5xl font-bold mb-6 bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+                Para Ti, Primo Julio
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                Que la magia de la Navidad llene tu corazón de alegría y que el Año Nuevo 
+                2025 traiga a tu vida innumerables bendiciones, éxitos y momentos felices.
+            </p>
+            <p class="text-lg text-gray-300 mb-12 leading-relaxed">
+                Gracias por ser un primo tan especial. Te deseo todo lo mejor 
+                en estas fiestas y siempre. ¡Que Dios te bendiga!
+            </p>
+            <div class="bg-gradient-to-br from-red-900/30 to-amber-900/30 p-8 rounded-3xl backdrop-blur-sm border border-red-800/30">
+                <p class="text-2xl font-light italic text-gray-200 mb-4">
+                    "Que esta Navidad sea el inicio de un año lleno de bendiciones"
+                </p>
+                <p class="text-3xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+                    ¡Feliz Navidad y Próspero Año Nuevo 2026!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 bg-slate-900/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            <p class="text-lg mb-2">Con cariño para Julio</p>
+            <p class="text-sm">Navidad 2025 - Año Nuevo 2025 ✨</p>
+            <p class="text-sm">By Pipitos ✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade in hero content
+        setTimeout(() => {
+            document.getElementById('heroContent').style.opacity = '1';
+            document.getElementById('heroContent').style.transition = 'opacity 1s';
+        }, 100);
+
+        // Cursor glow effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = (e.clientX - 200) + 'px';
+            cursorGlow.style.top = (e.clientY - 200) + 'px';
+        });
+
+        // Create particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = (Math.random() * 4 + 1) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Create snowflakes
+        const snowContainer = document.getElementById('snowflakes');
+        for (let i = 0; i < 20; i++) {
+            const snow = document.createElement('div');
+            snow.className = 'snow';
+            snow.textContent = '❄';
+            snow.style.left = Math.random() * 100 + '%';
+            snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            snow.style.animation = `fall ${Math.random() * 10 + 10}s linear infinite`;
+            snow.style.animationDelay = Math.random() * 5 + 's';
+            snowContainer.appendChild(snow);
+        }
+
+        // Smooth scroll with offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const navHeight = 130;
+                    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - navHeight;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
